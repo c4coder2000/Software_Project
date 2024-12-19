@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #f5f5f5, #d3a87c);
+            height: 100vh;
+            overflow: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3e2723;
+            padding: 5px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #d3a87c;
+            transform: translateY(-3px);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            color: #ffffff;
+            font-size: 18px;
+        }
+        .brand span {
+            color: #e1a377;
+            font-weight: bold;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            color: #3e2723;
+            text-align: center;
+            padding: 20px;
+        }
+        main div {
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            margin: 50px 0;
+            font-size: 32px;
+            font-weight: 800;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            font-size: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #9a4000;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        .button-container {
+            margin-top: 40px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 160px;
+            margin-top: 180px;
+        }
+        .buttons button {
+            background-color: #3e2723;
+            color: #ffffff;
+            padding: 20px 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #d3a87c;
+            transform: translateY(-3px);
+        }
+        footer {
+            background-color: #3e2723;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            position: relative;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        footer .brand {
+            display: inline-flex;
+            align-items: center;
+        }
+        .small-symbol {
+            font-size: 12px;
+            vertical-align: super;
+        }
+        .footer-text {
+            margin-top: 5px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="brand">
+            <img src="https://styleagent.b-cdn.net/wp-content/uploads/2022/06/blog-we-love-our-logo-2.jpg" alt="Logo">
+            <span>S</span>irius <span>A</span>ura
+        </div>
+        <div>
+            <a href="books.html">About</a>
+            <a href="loans.html">Contact us</a>
+        </div>
+    </nav>
+    <main>
+        <div>
+            <h2>Library Management System</h2>
+        </div>
+        <div class="button-container">
+            <div class="buttons">
+                <button onclick="location.href='admin_login.html'">ADMIN</button>
+                <button onclick="location.href='member_login.html'">MEMBER</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="brand">
+            <img src="https://styleagent.b-cdn.net/wp-content/uploads/2022/06/blog-we-love-our-logo-2.jpg" alt="Logo">
+            <span>S</span>irius <span>A</span>ura
+        </div>
+        <div class="footer-text">
+            <span class="small-symbol">©</span> 2024 All rights reserved
+        </div>
+    </footer>
+</body>
+</html>

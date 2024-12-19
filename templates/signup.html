@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #f5f5f5, #d3a87c);
+            height: 100vh;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3e2723;
+            padding: 5px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        nav .links {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #d3a87c;
+            transform: translateY(-3px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            color: #ffffff;
+            font-size: 18px;
+        }
+        .brand span {
+            color: #e1a377;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #3e2723;
+            text-align: center;
+            padding: 20px;
+        }
+        .signup-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 400px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+        }
+        .signup-container:hover {
+            transform: scale(1);
+        }
+        .signup-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #9a4000;
+            animation: slideInDown 0.6s ease-in-out;
+        }
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Input Fields */
+        .signup-container input[type="text"],
+        .signup-container input[type="password"],
+        .signup-container input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .signup-container input:focus {
+            border-color: hsl(203, 80%, 45%);
+            box-shadow: 0 0 8px hsl(203, 80%, 60%);
+            outline: none;
+        }
+        .signup-container input:invalid {
+            border: 1px solid red;
+            animation: shake 0.3s;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Buttons */
+        .signup-container button {
+            background-color: hsl(203, 80%, 45%);
+            color: #ffffff;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .signup-container button:hover {
+            background-color: #00008b;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        footer {
+            background-color: #3e2723;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            position: relative;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        footer .brand {
+            display: inline-flex;
+            align-items: center;
+        }
+        .small-symbol {
+            font-size: 12px;
+            vertical-align: super;
+        }
+        .footer-text {
+            margin-top: 5px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="brand">
+            <img src="https://styleagent.b-cdn.net/wp-content/uploads/2022/06/blog-we-love-our-logo-2.jpg" alt="Logo">
+            <span>S</span>irius <span>A</span>ura
+        </div>
+        <div class="links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+    <main>
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            <form action="#" method="post" onsubmit="return handleSignup(event)">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required title="Enter a valid email address">
+                <input type="text" name="username" placeholder="Username" required pattern="^[a-zA-Z0-9]{4,12}$" title="Username should be 4-12 characters long and contain only letters and numbers">
+                <input type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long">
+                <input type="password" name="confirm-password" placeholder="Confirm Password" required oninput="validatePasswordMatch()">
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="brand">
+            <img src="https://styleagent.b-cdn.net/wp-content/uploads/2022/06/blog-we-love-our-logo-2.jpg" alt="Logo">
+            <span>S</span>irius <span>A</span>ura
+        </div>
+        <div class="footer-text">
+            <span class="small-symbol">©</span> 2024 All rights reserved
+        </div>
+    </footer>
+    <script>
+        function validatePasswordMatch() {
+            const password = document.querySelector('input[name="password"]');
+            const confirmPassword = document.querySelector('input[name="confirm-password"]');
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity("Passwords do not match");
+            } else {
+                confirmPassword.setCustomValidity("");
+            }
+        }
+
+        function handleSignup(event) {
+            event.preventDefault(); // Prevent form submission
+            window.location.href = "login.html"; // Redirect to the login page
+        }
+    </script>
+</body>
+</html>

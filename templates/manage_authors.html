@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Authors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #f5f5f5, #d3a87c);
+            height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3e2723;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #d3a87c;
+            transform: translateY(-3px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .brand span {
+            color: #e1a377;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #3e2723;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        main div {
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            color: #9a4000;
+            margin-bottom: 200px;
+            margin-top: -120px;
+            font-weight: bold;
+            font-size: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+
+        .content {
+            width: 80%;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3e2723;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button-container button i {
+            margin-right: 10px;
+        }
+
+        .button-container button.add:hover {
+            background-color: #28a745;
+        }
+
+        .button-container button.edit:hover {
+            background-color: #fd7e14;
+        }
+
+        .button-container button.delete:hover {
+            background-color: #dc3545;
+        }
+
+        .button-container button.search:hover {
+            background-color: #007bff;
+        }
+
+        .form-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .form-container input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3e2723;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #d3a87c;
+            transform: translateY(-3px);
+        }
+
+        .author-list {
+            margin-top: 20px;
+        }
+
+        .author-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .author-list th,
+        .author-list td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .author-list th {
+            background-color: #f2f2f2;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #3e2723;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #d3a87c;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="brand">
+            <img src="https://styleagent.b-cdn.net/wp-content/uploads/2022/06/blog-we-love-our-logo-2.jpg" alt="Logo">
+            <span>S</span>irius <span>A</span>ura
+        </div>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact us</a>
+        </div>
+    </nav>
+    <main>
+        <h1>Manage Authors</h1>
+        <div class="content">
+            <div class="button-container">
+                <button class="add" onclick="toggleForm('add')"><i class="fas fa-plus"></i>Add Author</button>
+                <button class="edit" onclick="toggleForm('edit')"><i class="fas fa-edit"></i>Edit Author</button>
+                <button class="delete" onclick="toggleForm('delete')"><i class="fas fa-trash"></i>Delete Author</button>
+                <button class="search" onclick="toggleForm('search')"><i class="fas fa-search"></i>Search
+                    Authors</button>
+            </div>
+            <div class="form-container" id="author-form">
+                <input type="hidden" id="form-type" value="">
+                <input type="text" id="author-name" placeholder="Author Name">
+                <input type="text" id="author-country" placeholder="Country">
+                <button onclick="submitForm()">Submit</button>
+            </div>
+            <div class="author-list">
+                <h3>Author List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody id="author-list-body">
+                        <!-- Dynamic content goes here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button class="back-button" onclick="location.href='admin.html'">Back</button>
+    </main>
+
+
+
+
+
+
+    <script>
+        function toggleForm(type) {
+            const formType = document.getElementById('form-type');
+            const authorForm = document.getElementById('author-form');
+            if (formType.value === type && authorForm.style.display === 'block') {
+                authorForm.style.display = 'none';
+            } else {
+                formType.value = type;
+                authorForm.style.display = 'block';
+            }
+        }
+        function submitForm() {
+            const formType = document.getElementById('form-type').value;
+            const name = document.getElementById('author-name').value;
+            const country = document.getElementById('author-country').value;
+            if (formType === 'add') {
+                alert('Author added: ' + name);
+            } else if (formType === 'edit') {
+                alert('Author edited: ' + name);
+            } else if (formType === 'delete') {
+                alert('Author deleted: ' + name);
+            } else if (formType === 'search') {
+                alert('Search results for: ' + name);
+            }
+            document.getElementById('author-form').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

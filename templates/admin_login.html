@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #f5f5f5, #d3a87c);
+            height: 100vh;
+            overflow: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3e2723;
+            padding: 5px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #d3a87c;
+            transform: translateY(-3px);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            font-family: 'Georgia', serif;
+            color: #ffffff;
+            font-size: 18px;
+        }
+        .brand span {
+            color: #e1a377;
+            font-weight: bold;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #3e2723;
+            text-align: center;
+            padding: 20px;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 350px;
+        }
+        .login-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #9a4000;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-container input.error {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: -15px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .login-container button {
+            background-color: hsl(203, 80%, 45%); /* Light blue */
+            color: #ffffff;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .login-container button:hover {
+            background-color: #00008b; /* Dark blue on hover */
+            transform: translateY(-3px);
+        }
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+        }
+        .shake {
+            animation: shake 0.5s;
+        }
+        footer {
+            background-color: #3e2723;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            position: relative;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        footer .brand {
+            display: inline-flex;
+            align-items: center;
+        }
+        .small-symbol {
+            font-size: 12px;
+            vertical-align: super;
+        }
+        .footer-text {
+            margin-top: 5px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="brand">
+            <img src="https://styleagent.b-cdn.net/wp-content/uploads/2022/06/blog-we-love-our-logo-2.jpg" alt="Logo">
+            <span>S</span>irius <span>A</span>ura
+        </div>
+        <div>
+            <a href="home.html">Home</a>
+        </div>
+    </nav>
+    <main>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form>
+                <div class="error-message" id="error-message">Incorrect credentials. Please try again.</div>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <button type="button" id="login-button">Login</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="brand">
+            <img src="https://styleagent.b-cdn.net/wp-content/uploads/2022/06/blog-we-love-our-logo-2.jpg" alt="Logo">
+            <span>S</span>irius <span>A</span>ura
+        </div>
+        <div class="footer-text">
+            <span class="small-symbol">©</span> 2024 All rights reserved
+        </div>
+    </footer>
+    <script>
+        document.getElementById("login-button").addEventListener("click", function () {
+            const username = document.getElementById("username");
+            const password = document.getElementById("password");
+            const errorMessage = document.getElementById("error-message");
+    
+            // Simulating incorrect credentials
+            if (username.value !== "admin" || password.value !== "password") {
+                errorMessage.style.display = "block";
+                username.classList.add("shake", "error");
+                password.classList.add("shake", "error");
+    
+                setTimeout(() => {
+                    username.classList.remove("shake");
+                    password.classList.remove("shake");
+                }, 500);
+            } else {
+                // Redirect to admin.html if the credentials are correct
+                window.location.href = "admin.html";
+            }
+        });
+    </script>
+    
+</body>
+</html>
